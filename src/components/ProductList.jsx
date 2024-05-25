@@ -62,7 +62,7 @@ export default function ProductList() {
 
     return (
         <div>
-            <div className="font-bold text-2xl">
+            <div className="font-bold text-3xl text-violet-600">
                 Product List
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5 py-10">
