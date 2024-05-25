@@ -1,9 +1,12 @@
 import './App.css'
+import ProductList from './components/ProductList'
 
 function App() {
  
   return (
-    <div>hello</div>
+    <div>
+      <ProductList/>
+    </div>
   )
 }
 
