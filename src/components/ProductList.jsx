@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 import React from 'react';
 
+const productsPerPage = 10;
 export default function ProductList ()
 {
     const [ state, setState ] = React.useState( {
@@ -10,10 +12,13 @@ export default function ProductList ()
 
     React.useEffect( () =>
     {
-        const fetchProduct = () =>
+        const fetchProduct = async () =>
         {
-            
-        }
+            const response = await fetch( `https://dummyjson.com/products?limit=${productsPerPage}&skip=${state.page * productsPerPage
+                }` );
+            const data = await response.json()
+            console.log(data)
+        };
 
         const observer = new IntersectionObserver( (item) =>
         {
@@ -34,7 +39,7 @@ export default function ProductList ()
         {
             if ( observer ) return observer.disconnect();
         }
-    }, [] );
+    }, [state.hasMore, state.page] );
     
     const LoaderRef = React.useRef(null)
     return (
